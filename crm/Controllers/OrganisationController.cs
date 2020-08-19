@@ -35,9 +35,6 @@ namespace crm.Controllers
                 context.SaveChanges();
             }
 
-            string message = "Organisation created successfully!";
-
-            ViewBag.Message = message;
             return RedirectToAction("Index");
         }
 
