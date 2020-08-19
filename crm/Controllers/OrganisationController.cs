@@ -38,7 +38,7 @@ namespace crm.Controllers
             string message = "Organisation created successfully!";
 
             ViewBag.Message = message;
-            return View();
+            return RedirectToAction("Index");
         }
 
         public ActionResult Edit(int id)
