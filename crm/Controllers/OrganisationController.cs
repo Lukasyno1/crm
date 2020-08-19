@@ -10,14 +10,46 @@ namespace crm.Controllers
 {
     public class OrganisationController : Controller
     {
-        public ActionResult Index()
+        public ActionResult Index(string name, string type, string sortValue)
         {
             using (var context = new CrmDbContext())
             {
                 var data = context.Organisations.ToList();
+
+                if (!String.IsNullOrEmpty(name))
+                    data = data.Where(x => !String.IsNullOrEmpty(x.name) && x.name.Contains(name)).ToList();
+
+                if (!String.IsNullOrEmpty(type))
+                    data = data.Where(x => x.type.ToString() == type).ToList();
+
+                if(!String.IsNullOrEmpty(sortValue))
+                {
+                    switch (sortValue)
+                    {
+                        case "name":
+                            data = data.OrderBy(x => x.name).ToList();
+                            break;
+
+                        case "type":
+                            data = data.OrderBy(x => x.type).ToList();
+                            break;
+
+                        case "creationDate":
+                            data = data.OrderBy(x => x.type).ToList();
+                            break;
+
+                        case "updateDate":
+                            data = data.OrderBy(x => x.type).ToList();
+                            break;
+                    }   
+
+                }
+
                 return View(data);
             }
         }
+
+
 
         public ActionResult Create()
         {

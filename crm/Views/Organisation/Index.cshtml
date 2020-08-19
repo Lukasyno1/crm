@@ -4,23 +4,33 @@
     ViewBag.Title = "List";
 }
 <br />
+@using (Html.BeginForm("Index", "Organisation", FormMethod.Get))
+{
+<div>
+    Name @Html.TextBox("name")
+    Type @Html.DropDownList("type", new List<SelectListItem>{new SelectListItem { Value = "", Text = "All", Selected=true }, new SelectListItem { Value = "0", Text = "Mikro firma" },
+ new SelectListItem { Value = "1", Text = "Mała firma" },
+     new SelectListItem { Value = "2", Text = "Średnia firma" },
+     new SelectListItem { Value = "3", Text = "Duża firma" }})
+    <input type="submit" value="Filter" />
+
+
+</div>
+}
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.type)
+            @Html.ActionLink("Typ", "Index", new { sortValue = "type"})
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.name)
+            @Html.ActionLink("Nazwa", "Index", new { sortValue = "name" })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.created_at)
+            @Html.ActionLink("Data utworzenia", "Index", new { sortValue = "creationDate" })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.updated_at)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ghosted)
-        </th>
+            @Html.ActionLink("Data ostatniej aktualizacji", "Index", new { sortValue = "updateDate" })
+        </th>        
         <th></th>
     </tr>
 
@@ -28,7 +38,28 @@
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.type)
+                @functions{
+                    public string ConvertTypeToString(int type)
+                    {
+                        if (type == 0)
+                            return "Mikro firma";
+
+                        else if (type == 1)
+                            return "Mała firma";
+
+                        else if (type == 2)
+                            return "Średnia firma";
+
+                        else
+                            return "Duża firma";
+                    }
+                }
+                @{
+                    string typeString = ConvertTypeToString(item.type);
+                }
+                
+                @Html.DisplayFor(modelItem => typeString)
+
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.name)
@@ -39,11 +70,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.updated_at)
             </td>
+            
             <td>
-                @Html.DisplayFor(modelItem => item.ghosted)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                @Html.ActionLink("Update", "Edit", new { id = item.id }) |
                 @Html.ActionLink("Delete", "Delete", new { id = item.id })
             </td>
         </tr>
