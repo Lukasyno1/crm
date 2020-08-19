@@ -70,14 +70,18 @@ namespace crm.Controllers
             }
         }
 
-        public ActionResult Delete()
+        public ActionResult Delete(int id)
         {
-            return View();
+            using (var context = new CrmDbContext())
+            {
+                var data = context.Organisations.Where(x => x.id == id).FirstOrDefault();
+                return View(data);
+            }
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int id, OrganisationModel organisation)
         {
             using (var context = new CrmDbContext())
             {
