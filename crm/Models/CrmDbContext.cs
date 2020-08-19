@@ -1,4 +1,5 @@
-﻿using System;
+﻿using crm.Models.Organisation;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -12,6 +13,6 @@ namespace crm.Models
            : base("name=CrmDbContext")
         {          
         }
-        public DbSet<Organisation> Organisations { get; set; }
+        public DbSet<OrganisationModel> Organisations { get; set; }
     }
 }

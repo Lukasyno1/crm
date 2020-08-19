@@ -128,6 +128,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OrganisationController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -139,9 +140,13 @@
     <Compile Include="Migrations\202008191619383_AddOrganisationModel.designer.cs">
       <DependentUpon>202008191619383_AddOrganisationModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202008191837132_ModifyOrganisationModel.cs" />
+    <Compile Include="Migrations\202008191837132_ModifyOrganisationModel.designer.cs">
+      <DependentUpon>202008191837132_ModifyOrganisationModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CrmDbContext.cs" />
-    <Compile Include="Models\Organisation.cs" />
+    <Compile Include="Models\Organisation\OrganisationModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -180,6 +185,12 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Organisation\Create.cshtml" />
+    <Content Include="Views\Organisation\Read.cshtml" />
+    <Content Include="Views\Organisation\Update.cshtml" />
+    <Content Include="Views\Organisation\Delete.cshtml" />
+    <Content Include="Views\Organisation\Index.cshtml" />
+    <Content Include="Views\Organisation\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -203,6 +214,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202008191619383_AddOrganisationModel.resx">
       <DependentUpon>202008191619383_AddOrganisationModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008191837132_ModifyOrganisationModel.resx">
+      <DependentUpon>202008191837132_ModifyOrganisationModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
