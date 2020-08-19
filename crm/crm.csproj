@@ -135,8 +135,13 @@
     <Compile Include="Migrations\202008191610343_InitialCreate.designer.cs">
       <DependentUpon>202008191610343_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202008191619383_AddOrganisationModel.cs" />
+    <Compile Include="Migrations\202008191619383_AddOrganisationModel.designer.cs">
+      <DependentUpon>202008191619383_AddOrganisationModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CrmDbContext.cs" />
+    <Compile Include="Models\Organisation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -195,6 +200,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202008191610343_InitialCreate.resx">
       <DependentUpon>202008191610343_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008191619383_AddOrganisationModel.resx">
+      <DependentUpon>202008191619383_AddOrganisationModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

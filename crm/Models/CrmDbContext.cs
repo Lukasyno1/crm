@@ -12,6 +12,6 @@ namespace crm.Models
            : base("name=CrmDbContext")
         {          
         }
-
+        public DbSet<Organisation> Organisations { get; set; }
     }
 }
